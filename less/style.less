@@ -1,0 +1,146 @@
+/*
+Theme Name: Wooden
+Theme URI: http://www.google.com
+Author: Yoga Hanggara
+Author URI: http://yohang.net
+Description: Template for Wooden
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: simple
+Text Domain: wooden
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+@import "bootstrap/variables.less";
+@import "variables-custom.less";
+@import "bootstrap/mixins.less";
+
+@import "bootstrap/normalize.less";
+@import "bootstrap/print.less";
+
+@import "bootstrap/scaffolding.less";
+@import "bootstrap/type.less";
+@import "bootstrap/code.less";
+@import "bootstrap/grid.less";
+@import "bootstrap/tables.less";
+@import "bootstrap/forms.less";
+@import "bootstrap/buttons.less";
+
+@import "bootstrap/component-animations.less";
+@import "bootstrap/glyphicons.less";
+@import "bootstrap/dropdowns.less";
+@import "bootstrap/button-groups.less";
+@import "bootstrap/input-groups.less";
+@import "bootstrap/navs.less";
+@import "bootstrap/navbar.less";
+@import "bootstrap/breadcrumbs.less";
+@import "bootstrap/pagination.less";
+@import "bootstrap/pager.less";
+@import "bootstrap/labels.less";
+@import "bootstrap/badges.less";
+@import "bootstrap/jumbotron.less";
+@import "bootstrap/thumbnails.less";
+@import "bootstrap/alerts.less";
+@import "bootstrap/progress-bars.less";
+@import "bootstrap/media.less";
+@import "bootstrap/list-group.less";
+@import "bootstrap/panels.less";
+@import "bootstrap/wells.less";
+@import "bootstrap/close.less";
+
+@import "bootstrap/modals.less";
+@import "bootstrap/tooltip.less";
+@import "bootstrap/popovers.less";
+@import "bootstrap/carousel.less";
+
+@import "bootstrap/utilities.less";
+@import "bootstrap/responsive-utilities.less";
+
+img {
+	&.img-responsive {
+		width: 100%;
+	}
+
+	&.circle {
+		border-radius: 50%;
+
+		@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+			float: left;
+		}
+	}
+}
+
+.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+body {
+	background-color: @light-brown;
+}
+
+#main-wrapper {
+	margin-top: 25px;
+
+	#wrapper {
+		padding-top: 15px;
+		background-color: #FFF;
+		min-height: 600px;
+		box-shadow: 0px 0px 5px 3px #EEE0D1;
+
+		#common-about {
+			.make-row();
+
+			.content {
+				.make-md-column(4);
+
+				h1.ribbon {
+					position: relative;
+					padding: 20px 10px;
+					padding-left: 35px;
+					margin-left: -35px;
+					margin-right: -15px;
+					color: @white;
+					background-color: @green-pastel;					
+					
+					&:after {
+						content: ' ';
+						position: absolute;
+						width: 0;
+						height: 0;
+						left: 0px;
+						top: 100%;
+						border-width: 10px 10px;
+						border-style: solid;
+						border-color: darken(@green-pastel, 10%) darken(@green-pastel, 10%) transparent transparent;	
+					}	
+
+					@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+						margin-right: -35px;
+
+						&:before {
+							content: ' ';
+							position: absolute;
+							width: 0;
+							height: 0;
+							right: 0px;
+							top: 100%;
+							border-width: 10px 10px;
+							border-style: solid;
+							border-color: darken(@green-pastel, 10%) transparent transparent darken(@green-pastel, 10%) ;	
+						}
+					}									
+				}
+			}
+
+			.slider {
+				.make-md-column(8);
+			}
+		}
+	}
+}
+
