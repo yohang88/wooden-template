@@ -13,6 +13,28 @@
                 <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-2.jpg&amp;w=540&amp;h=300" class="img-responsive" />
             </div>
         </div>
+        <div id="common-productcategories">
+            <div class="item">
+                <div class="cat-1">
+                    <div>Testing</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cat-1">
+                    <div></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cat-1">
+                    <div></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cat-1">
+                    <div></div>
+                </div>
+            </div>                                                
+        </div>
     </div>
 </section>
 
