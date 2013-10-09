@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Kotta+One);
 /*
 Theme Name: Wooden
 Theme URI: http://www.google.com
@@ -13,18 +14,21 @@ Text Domain: wooden
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+/*
 @font-face {
   font-family: 'Droid Sans';
   font-style: normal;
   font-weight: 400;
   src: local('Droid Sans'), local('DroidSans'), url('fonts/droidsans/droidsans.woff') format('woff');
 }
+
 @font-face {
   font-family: 'Droid Sans';
   font-style: normal;
   font-weight: 700;
   src: local('Droid Sans Bold'), local('DroidSans-Bold'), url('fonts/droidsans/droidsansbold.woff') format('woff');
 }
+*/
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 article,
 aside,
@@ -276,7 +280,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Droid Sans", Arial, sans-serif;
+  font-family: 'Kotta One', serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -411,7 +415,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Droid Sans", Arial, sans-serif;
+  font-family: 'Kotta One', serif;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -5934,15 +5938,71 @@ img.img-responsive {
 }
 body {
   background-color: #f9efe8;
+  color: #8e8e8e;
+}
+header {
+  margin-top: 75px;
+}
+header .site-logo {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+header .site-logo:before,
+header .site-logo:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+header .site-logo:after {
+  clear: both;
+}
+header .site-logo:before,
+header .site-logo:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+header .site-logo:after {
+  clear: both;
+}
+header .site-logo .inner {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+header .site-logo .inner h1,
+header .site-logo .inner h2 {
+  color: #a9c1a4;
+  margin: 0;
+}
+header .site-logo .inner h2 {
+  font-size: 14pt;
 }
 #main-wrapper {
-  margin-top: 25px;
+  margin-top: 50px;
+}
+@media (min-width: 768px) {
+  #main-wrapper {
+    margin-bottom: 25px;
+  }
 }
 #main-wrapper #wrapper {
-  padding-top: 15px;
   background-color: #FFF;
   min-height: 600px;
   box-shadow: 0px 0px 5px 3px #EEE0D1;
+}
+#main-wrapper #wrapper.container {
+  padding: 30px;
 }
 #main-wrapper #wrapper #common-about {
   margin-left: -15px;
@@ -5987,11 +6047,16 @@ body {
 #main-wrapper #wrapper #common-about .content h1.ribbon {
   position: relative;
   padding: 20px 10px;
-  padding-left: 35px;
-  margin-left: -35px;
-  margin-right: -15px;
+  padding-left: 55px;
+  margin-left: -50px;
+  margin-right: -30px;
   color: #ffffff;
   background-color: #a9c1a4;
+}
+@media (min-width: 992px) {
+  #main-wrapper #wrapper #common-about .content h1.ribbon {
+    margin-right: 0;
+  }
 }
 #main-wrapper #wrapper #common-about .content h1.ribbon:after {
   content: ' ';
@@ -6006,7 +6071,7 @@ body {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   #main-wrapper #wrapper #common-about .content h1.ribbon {
-    margin-right: -35px;
+    margin-right: -50px;
   }
   #main-wrapper #wrapper #common-about .content h1.ribbon:before {
     content: ' ';
@@ -6033,6 +6098,8 @@ body {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  border-top: 2px dashed #ddd;
+  padding-top: 20px;
 }
 @media (min-width: 992px) {
   #main-wrapper #wrapper #common-about .slider {
@@ -6040,10 +6107,23 @@ body {
     width: 66.66666666666666%;
   }
 }
+@media (min-width: 992px) {
+  #main-wrapper #wrapper #common-about .slider {
+    border: 0;
+    padding-top: 0;
+  }
+}
+#main-wrapper #wrapper #common-about .slider .carousel-control.right,
+#main-wrapper #wrapper #common-about .slider .carousel-control.left {
+  background: none;
+}
 #main-wrapper #wrapper #common-productcategories {
   margin-left: -15px;
   margin-right: -15px;
-  padding: 0 30px;
+  padding: 30px 15px;
+  margin-top: 20px;
+  border-top: 2px dashed #ddd;
+  border-bottom: 2px dashed #ddd;
 }
 #main-wrapper #wrapper #common-productcategories:before,
 #main-wrapper #wrapper #common-productcategories:after {
@@ -6076,6 +6156,8 @@ body {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 @media (min-width: 768px) {
   #main-wrapper #wrapper #common-productcategories .item {
@@ -6083,20 +6165,23 @@ body {
     width: 25%;
   }
 }
-#main-wrapper #wrapper #common-productcategories .item .cat-1:after {
+#main-wrapper #wrapper #common-productcategories .item .outer {
+  border-radius: 50%;
+  border: 2px dashed #ddd;
+  padding: 5%;
+}
+#main-wrapper #wrapper #common-productcategories .item .outer .inner:after {
   content: "";
   display: block;
   width: 100%;
   height: 0;
   padding-bottom: 100%;
-  background: #4679BD;
-  background-image: url('img/dummy/photo-1.jpg');
-  background-size: cover;
+  background: #EFE092;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-#main-wrapper #wrapper #common-productcategories .item .cat-1 div {
+#main-wrapper #wrapper #common-productcategories .item .outer .inner div {
   float: left;
   width: 100%;
   padding-top: 50%;
@@ -6104,4 +6189,111 @@ body {
   margin-top: -0.5em;
   text-align: center;
   color: white;
+}
+#main-wrapper #wrapper #common-content {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#main-wrapper #wrapper #common-content:before,
+#main-wrapper #wrapper #common-content:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#main-wrapper #wrapper #common-content:after {
+  clear: both;
+}
+#main-wrapper #wrapper #common-content:before,
+#main-wrapper #wrapper #common-content:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#main-wrapper #wrapper #common-content:after {
+  clear: both;
+}
+#main-wrapper #wrapper #common-content .main {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  #main-wrapper #wrapper #common-content .main {
+    float: left;
+    width: 66.66666666666666%;
+  }
+}
+@media (min-width: 768px) {
+  #main-wrapper #wrapper #common-content .main {
+    padding-right: 30px;
+    border-right: 2px dashed #ddd;
+  }
+}
+#main-wrapper #wrapper #common-content .sidebar {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  #main-wrapper #wrapper #common-content .sidebar {
+    float: left;
+    width: 33.33333333333333%;
+  }
+}
+@media (min-width: 768px) {
+  #main-wrapper #wrapper #common-content .sidebar {
+    padding-left: 30px;
+  }
+}
+#main-wrapper #wrapper #common-content h1.caption {
+  width: 100%;
+  background-color: #a9c1a4;
+  color: #ffffff;
+  padding: 10px;
+  font-size: 16pt;
+}
+#main-wrapper #wrapper #common-content .productgallery {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#main-wrapper #wrapper #common-content .productgallery:before,
+#main-wrapper #wrapper #common-content .productgallery:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#main-wrapper #wrapper #common-content .productgallery:after {
+  clear: both;
+}
+#main-wrapper #wrapper #common-content .productgallery:before,
+#main-wrapper #wrapper #common-content .productgallery:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#main-wrapper #wrapper #common-content .productgallery:after {
+  clear: both;
+}
+#main-wrapper #wrapper #common-content .productgallery .item {
+  position: relative;
+  float: left;
+  width: 50%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
 }
