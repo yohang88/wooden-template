@@ -10,3 +10,34 @@
 </head>
 <body <?php body_class(); ?>>
 
+<header>
+    <div class="container">
+        <div class="site-logo">
+            <div class="inner">
+                <h1>Wooden Handicraft</h1>
+                <h2>Natural Living of Art</h2>
+            </div>
+        </div>
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Beranda Depan</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Tutorial</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>        
+    </div>
+</header>
