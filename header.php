@@ -32,12 +32,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Beranda Depan</a></li>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Tutorial</a></li>
-                    <li><a href="#">Kontak</a></li>
+                    <li class="active"><a href="index.php">Beranda Depan</a></li>
+                    <li><a href="index.php">Tentang Kami</a></li>
+                    <li><a href="index.php">Tutorial</a></li>
+                    <li><a href="index.php">Kontak</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
-        </nav>        
+        </nav>
     </div>
 </header>

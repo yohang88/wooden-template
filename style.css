@@ -5997,23 +5997,24 @@ header .navbar-default {
   border-radius: 0;
   background: inherit;
   color: #a9c1a4;
+  min-height: inherit;
 }
 header .navbar-default .nav > li > a {
   font-size: 12pt;
 }
 @media (min-width: 768px) {
   header .navbar-default .nav > li > a {
-    padding: 15px 46px;
+    padding: 9px 46px;
   }
 }
 @media (min-width: 992px) {
   header .navbar-default .nav > li > a {
-    padding: 15px 74px;
+    padding: 9px 74px;
   }
 }
 @media (min-width: 1200px) {
   header .navbar-default .nav > li > a {
-    padding: 15px 75px;
+    padding: 9px 75px;
   }
 }
 header .navbar-default .navbar-nav > .active > a,
@@ -6036,7 +6037,7 @@ header .navbar-default .navbar-nav > .active > a:focus {
   background-color: #FFF;
 }
 #main-wrapper #wrapper.container {
-  padding: 30px;
+  padding: 20px 30px;
 }
 #main-wrapper #wrapper #common-about {
   margin-left: -15px;
