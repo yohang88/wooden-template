@@ -6515,7 +6515,15 @@ body.category #main-wrapper #wrapper #common-content .productgallery .item {
 #main-wrapper #wrapper #common-content .productgallery .item .price .promo-old {
   text-decoration: line-through;
 }
-footer .container {
+footer .container .row.copyright {
   background-color: #a9c1a4;
-  padding: 25px;
+  padding: 15px;
+  color: #FFF;
+}
+footer .container .row.ulir {
+  padding: 20px;
+  background-image: url('img/ulir.png');
+  background-repeat: repeat-x;
+  background-position-y: 15px;
+  margin-bottom: 10px;
 }
