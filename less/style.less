@@ -79,10 +79,11 @@ img {
 body {
 	background-color: @light-brown;
 	color: rgb(142, 142, 142);
+	background-image: url('img/bg.jpg');
 }
 
 header {
-	margin-top: 75px;
+	margin-top: 25px;
 
 	.site-logo {
 		.make-row();
@@ -98,6 +99,18 @@ header {
 			h2 {
 				font-size: 14pt;
 			}
+
+			.social-network
+			{
+				.hidden-xs;
+				position: absolute;
+				right: 0;
+				top: 10px;
+
+				img {
+					width: 36px;
+				}
+			}
 		}
 	}
 
@@ -108,9 +121,11 @@ header {
 		border-right:  0;
 		border-left:   0;
 		border-radius: 0;
+		border-color:  @green-pastel;
 		background:    inherit;
 		color:         @green-pastel;
 		min-height:    inherit;
+		font-family:   @font-kemasyuran;
 
 		.nav > li > a {
 
@@ -131,8 +146,8 @@ header {
 		.navbar-nav > .active > a,
 		.navbar-nav > .active > a:hover,
 		.navbar-nav > .active > a:focus {
-			background: inherit;
-			color: @green-pastel;
+			background: @green-pastel;
+			color: #FFF;
 		}
 	}
 }
@@ -147,7 +162,7 @@ header {
 
 	#wrapper {
 		min-height: 600px;
-		box-shadow: 0px 0px 5px 3px #EEE0D1;
+		// box-shadow: 0px 0px 5px 3px #EEE0D1;
 
 		// font-size: 0.9em;
 		background-color: #FFF;
@@ -162,13 +177,19 @@ header {
 				.make-md-column(4);
 
 				h1.ribbon {
-					position:         relative;
-					margin-right:     -30px;
-					margin-left:      -50px;
-					padding:          20px 10px;
-					padding-left:     55px;
-					background-color: @green-pastel;
-					color:            @white;
+					font-family:           @font-booter;
+					font-size:             30pt;
+					position:              relative;
+					margin-right:          -30px;
+					margin-left:           -50px;
+					padding:               20px 10px;
+					padding-left:          65px;
+					background-color:      @green-pastel;
+					background-image:      url('img/calligraphy-1.png');
+					background-repeat:     no-repeat;
+					background-position-x: 15px;
+					background-position-y: 8px;
+					color:                 @white;
 
 					@media (min-width: @screen-md) {
 						margin-right: 0;
@@ -217,7 +238,8 @@ header {
 				.make-md-column(8);
 				padding-top: 20px;
 
-				border-top: 2px dashed #ddd;
+				border-top: 2px dashed;
+				border-color: @green-pastel;
 
 				@media (min-width: @screen-md) {
 					padding-top: 0;
@@ -237,21 +259,25 @@ header {
 
 			margin-top:    20px;
 			padding:       30px 15px;
-			border-top:    2px dashed #ddd;
-			border-bottom: 2px dashed #ddd;
+			border-top:    2px dashed;
+			border-bottom: 2px dashed;
+			border-color: @green-pastel;
 
 			.item {
-				.make-xs-column(3);
+				.make-xs-column(6);
+				.make-sm-column(3);
 				body.category & {
 					.make-xs-column(4);
+					.make-sm-column(4);
 				}
 
-				padding-right: 5px;
-				padding-left:  5px;
+				padding-right:    5px;
+				padding-left:     5px;
 
 				.outer {
 					padding:       5%;
-					border:        2px dashed #ddd;
+					border:        2px dashed;
+					border-color:  @green-pastel;
 					border-radius: 50%;
 					font-size:     12pt;
 
@@ -263,21 +289,37 @@ header {
 							height:                0;
 							-webkit-border-radius: 50%;
 							border-radius:         50%;
-							background:            #EFE092;
+							// background:         #EFE092;
 							content:               "";
-							// background-image:   url('img/dummy/photo-1.jpg');
-							// background-size:    cover;
+							background-image:      url('img/bg-cat.png');
+							background-size:       cover;
 							-moz-border-radius:    50%;
 						}
 
 					    div {
 						    float:       left;
 						    margin-top:  -0.5em;
-						    padding-top: 50%;
-						    width:       100%;
+						    margin-left: 10px;
+						    padding-top: 40%;
+						    @media (min-width: @screen-sm) {
+						    	padding-top: 35%;
+						    }
+						    width:       85%;
 						    color:       @green-pastel;
 						    text-align:  center;
 						    line-height: 1em;
+
+						    a {
+						    	color: #000;
+								line-height: 1em;
+								font-size: 16pt;
+								@media (min-width: @screen-sm) {
+									font-size: 18pt;
+								}
+								@media (min-width: @screen-md) {
+									font-size: 25pt;
+								}
+						    }
 					    }
 					}
 				}
@@ -292,7 +334,8 @@ header {
 
 				@media (min-width: @screen-sm) {
 					padding-right: 30px;
-					border-right:  2px dashed #ddd;
+					border-right:  2px dashed;
+					border-color:  @green-pastel;
 				}
 
 				body.category & {
@@ -311,26 +354,59 @@ header {
 
 			h1 {
 				&.caption {
-					padding:          10px;
-					width:            100%;
-					background-color: @green-pastel;
-					color:            @white;
-					font-size:        16pt;
+					padding:               10px;
+					padding-left:          45px;
+					width:                 100%;
+					background-color:      @green-pastel;
+					color:                 @white;
+					font-size:             20pt;
+					font-family:           @font-booter;
+					background-image:      url('img/calligraphy-1.png');
+					background-repeat:     no-repeat;
+					background-position-x: 10px;
+					background-size:       20px;
+					background-position-y: 3px;
 				}
 
 			}
 
 			.productgallery {
 				.make-row();
+				padding-left: 15px;
+				padding-right: 15px;
 
 				.item {
 					.make-xs-column(6);
+
 					body.category & {
 						.make-xs-column(4);
+						padding-left: 0;
+						padding-right: 0;
 					}
-					border-top: 1px solid #eee;
-					border-bottom: 1px solid #eee;
-					margin-bottom: 30px;
+
+					padding-left:     0;
+					padding-right:    0;
+					border-top:       1px solid;
+					border-bottom:    1px solid;
+					border-color:     @green-pastel;
+					margin-bottom:    30px;
+					background-color: @green-pastel;
+
+					&:hover img { opacity: 0.5; }
+
+					.tag-special {
+
+						&.best-seller {
+							background-image:  url('img/tag-special-best-seller.png');
+							background-repeat: no-repeat;
+							background-size:   150px 150px;
+							width:             150px;
+							height:            150px;
+							position:          absolute;
+							top:               20px;
+							right:             0;
+						}
+					}
 				}
 			}
 		}
@@ -341,6 +417,6 @@ footer {
 	.container {
 		background-color: @green-pastel;
 		padding: 25px;
-		box-shadow: 0px 0px 5px 3px #EEE0D1;
+		// box-shadow: 0px 0px 5px 3px #EEE0D1;
 	}
 }

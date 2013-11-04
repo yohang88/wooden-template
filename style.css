@@ -29,6 +29,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
   src: local('Droid Sans Bold'), local('DroidSans-Bold'), url('fonts/droidsans/droidsansbold.woff') format('woff');
 }
 */
+@font-face {
+  font-family: 'KemasyuranJawa';
+  font-style: normal;
+  src: url('fonts/jawa/kemasyuranjawa.ttf');
+}
+@font-face {
+  font-family: 'FreeBooter';
+  font-style: normal;
+  src: url('fonts/booter/booter.ttf');
+}
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 article,
 aside,
@@ -5939,9 +5949,10 @@ img.img-responsive {
 body {
   background-color: #f9efe8;
   color: #8e8e8e;
+  background-image: url('img/bg.jpg');
 }
 header {
-  margin-top: 75px;
+  margin-top: 25px;
 }
 header .site-logo {
   margin-left: -15px;
@@ -5988,6 +5999,70 @@ header .site-logo .inner h2 {
 header .site-logo .inner h2 {
   font-size: 14pt;
 }
+header .site-logo .inner .social-network {
+  display: block !important;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+trheader .site-logo .inner .social-network {
+  display: table-row !important;
+}
+thheader .site-logo .inner .social-network,
+tdheader .site-logo .inner .social-network {
+  display: table-cell !important;
+}
+@media (max-width: 767px) {
+  header .site-logo .inner .social-network {
+    display: none !important;
+  }
+  trheader .site-logo .inner .social-network {
+    display: none !important;
+  }
+  thheader .site-logo .inner .social-network,
+  tdheader .site-logo .inner .social-network {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  header .site-logo .inner .social-network.hidden-sm {
+    display: none !important;
+  }
+  trheader .site-logo .inner .social-network.hidden-sm {
+    display: none !important;
+  }
+  thheader .site-logo .inner .social-network.hidden-sm,
+  tdheader .site-logo .inner .social-network.hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  header .site-logo .inner .social-network.hidden-md {
+    display: none !important;
+  }
+  trheader .site-logo .inner .social-network.hidden-md {
+    display: none !important;
+  }
+  thheader .site-logo .inner .social-network.hidden-md,
+  tdheader .site-logo .inner .social-network.hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  header .site-logo .inner .social-network.hidden-lg {
+    display: none !important;
+  }
+  trheader .site-logo .inner .social-network.hidden-lg {
+    display: none !important;
+  }
+  thheader .site-logo .inner .social-network.hidden-lg,
+  tdheader .site-logo .inner .social-network.hidden-lg {
+    display: none !important;
+  }
+}
+header .site-logo .inner .social-network img {
+  width: 36px;
+}
 header .navbar-default {
   margin-top: 25px;
   margin-bottom: 0;
@@ -5995,9 +6070,11 @@ header .navbar-default {
   border-right: 0;
   border-left: 0;
   border-radius: 0;
+  border-color: #a9c1a4;
   background: inherit;
   color: #a9c1a4;
   min-height: inherit;
+  font-family: 'KemasyuranJawa';
 }
 header .navbar-default .nav > li > a {
   font-size: 12pt;
@@ -6020,8 +6097,8 @@ header .navbar-default .nav > li > a {
 header .navbar-default .navbar-nav > .active > a,
 header .navbar-default .navbar-nav > .active > a:hover,
 header .navbar-default .navbar-nav > .active > a:focus {
-  background: inherit;
-  color: #a9c1a4;
+  background: #a9c1a4;
+  color: #FFF;
 }
 #main-wrapper {
   margin-top: 25px;
@@ -6033,7 +6110,6 @@ header .navbar-default .navbar-nav > .active > a:focus {
 }
 #main-wrapper #wrapper {
   min-height: 600px;
-  box-shadow: 0px 0px 5px 3px #EEE0D1;
   background-color: #FFF;
 }
 #main-wrapper #wrapper.container {
@@ -6080,12 +6156,18 @@ header .navbar-default .navbar-nav > .active > a:focus {
   }
 }
 #main-wrapper #wrapper #common-about .content h1.ribbon {
+  font-family: 'FreeBooter';
+  font-size: 30pt;
   position: relative;
   margin-right: -30px;
   margin-left: -50px;
   padding: 20px 10px;
-  padding-left: 55px;
+  padding-left: 65px;
   background-color: #a9c1a4;
+  background-image: url('img/calligraphy-1.png');
+  background-repeat: no-repeat;
+  background-position-x: 15px;
+  background-position-y: 8px;
   color: #ffffff;
 }
 @media (min-width: 992px) {
@@ -6134,7 +6216,8 @@ header .navbar-default .navbar-nav > .active > a:focus {
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 20px;
-  border-top: 2px dashed #ddd;
+  border-top: 2px dashed;
+  border-color: #a9c1a4;
 }
 @media (min-width: 992px) {
   #main-wrapper #wrapper #common-about .slider {
@@ -6157,8 +6240,9 @@ header .navbar-default .navbar-nav > .active > a:focus {
   margin-right: -15px;
   margin-top: 20px;
   padding: 30px 15px;
-  border-top: 2px dashed #ddd;
-  border-bottom: 2px dashed #ddd;
+  border-top: 2px dashed;
+  border-bottom: 2px dashed;
+  border-color: #a9c1a4;
 }
 #main-wrapper #wrapper #common-productcategories:before,
 #main-wrapper #wrapper #common-productcategories:after {
@@ -6185,26 +6269,39 @@ header .navbar-default .navbar-nav > .active > a:focus {
   clear: both;
 }
 #main-wrapper #wrapper #common-productcategories .item {
-  position: relative;
   float: left;
-  width: 25%;
+  width: 50%;
+  position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
   padding-right: 5px;
   padding-left: 5px;
 }
+@media (min-width: 768px) {
+  #main-wrapper #wrapper #common-productcategories .item {
+    float: left;
+    width: 25%;
+  }
+}
 body.category #main-wrapper #wrapper #common-productcategories .item {
-  position: relative;
   float: left;
   width: 33.33333333333333%;
+  position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
+@media (min-width: 768px) {
+  body.category #main-wrapper #wrapper #common-productcategories .item {
+    float: left;
+    width: 33.33333333333333%;
+  }
+}
 #main-wrapper #wrapper #common-productcategories .item .outer {
   padding: 5%;
-  border: 2px dashed #ddd;
+  border: 2px dashed;
+  border-color: #a9c1a4;
   border-radius: 50%;
   font-size: 12pt;
 }
@@ -6215,18 +6312,40 @@ body.category #main-wrapper #wrapper #common-productcategories .item {
   height: 0;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  background: #EFE092;
   content: "";
+  background-image: url('img/bg-cat.png');
+  background-size: cover;
   -moz-border-radius: 50%;
 }
 #main-wrapper #wrapper #common-productcategories .item .outer .inner div {
   float: left;
   margin-top: -0.5em;
-  padding-top: 50%;
-  width: 100%;
+  margin-left: 10px;
+  padding-top: 40%;
+  width: 85%;
   color: #a9c1a4;
   text-align: center;
   line-height: 1em;
+}
+@media (min-width: 768px) {
+  #main-wrapper #wrapper #common-productcategories .item .outer .inner div {
+    padding-top: 35%;
+  }
+}
+#main-wrapper #wrapper #common-productcategories .item .outer .inner div a {
+  color: #000;
+  line-height: 1em;
+  font-size: 16pt;
+}
+@media (min-width: 768px) {
+  #main-wrapper #wrapper #common-productcategories .item .outer .inner div a {
+    font-size: 18pt;
+  }
+}
+@media (min-width: 992px) {
+  #main-wrapper #wrapper #common-productcategories .item .outer .inner div a {
+    font-size: 25pt;
+  }
 }
 #main-wrapper #wrapper #common-content {
   margin-left: -15px;
@@ -6271,7 +6390,8 @@ body.category #main-wrapper #wrapper #common-productcategories .item {
 @media (min-width: 768px) {
   #main-wrapper #wrapper #common-content .main {
     padding-right: 30px;
-    border-right: 2px dashed #ddd;
+    border-right: 2px dashed;
+    border-color: #a9c1a4;
   }
 }
 body.category #main-wrapper #wrapper #common-content .main {
@@ -6306,14 +6426,23 @@ body.category #main-wrapper #wrapper #common-content .main {
 }
 #main-wrapper #wrapper #common-content h1.caption {
   padding: 10px;
+  padding-left: 45px;
   width: 100%;
   background-color: #a9c1a4;
   color: #ffffff;
-  font-size: 16pt;
+  font-size: 20pt;
+  font-family: 'FreeBooter';
+  background-image: url('img/calligraphy-1.png');
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-size: 20px;
+  background-position-y: 3px;
 }
 #main-wrapper #wrapper #common-content .productgallery {
   margin-left: -15px;
   margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 #main-wrapper #wrapper #common-content .productgallery:before,
 #main-wrapper #wrapper #common-content .productgallery:after {
@@ -6346,9 +6475,13 @@ body.category #main-wrapper #wrapper #common-content .main {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #a9c1a4;
   margin-bottom: 30px;
+  background-color: #a9c1a4;
 }
 body.category #main-wrapper #wrapper #common-content .productgallery .item {
   position: relative;
@@ -6357,9 +6490,23 @@ body.category #main-wrapper #wrapper #common-content .productgallery .item {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
+}
+#main-wrapper #wrapper #common-content .productgallery .item:hover img {
+  opacity: 0.5;
+}
+#main-wrapper #wrapper #common-content .productgallery .item .tag-special.best-seller {
+  background-image: url('img/tag-special-best-seller.png');
+  background-repeat: no-repeat;
+  background-size: 150px 150px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 20px;
+  right: 0;
 }
 footer .container {
   background-color: #a9c1a4;
   padding: 25px;
-  box-shadow: 0px 0px 5px 3px #EEE0D1;
 }

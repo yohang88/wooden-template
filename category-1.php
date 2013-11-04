@@ -50,9 +50,11 @@
                 <div class="productgallery">
                     <div class="item">
                         <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" />
+                        <div class="tag-special best-seller"></div>
                     </div>
                     <div class="item">
                         <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" />
+                        <div class="tag-special best-seller"></div>
                     </div>
                     <div class="item">
                         <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" />

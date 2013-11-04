@@ -13,12 +13,28 @@
   src: local('Droid Sans Bold'), local('DroidSans-Bold'), url('fonts/droidsans/droidsansbold.woff') format('woff');
 }
 */
-@import url(http://fonts.googleapis.com/css?family=Kotta+One);
 
+@font-face {
+  font-family: 'KemasyuranJawa';
+  font-style: normal;
+  src: url('fonts/jawa/kemasyuranjawa.ttf');
+}
+
+@font-face {
+  font-family: 'FreeBooter';
+  font-style: normal;
+  src: url('fonts/booter/booter.ttf');
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Kotta+One);
 
 @icon-font-path:       "fonts/";
 @font-family-base:     'Kotta One', serif;
 @headings-font-family: 'Kotta One', serif;
+
+@font-booter:          'FreeBooter';
+@font-kemasyuran:      'KemasyuranJawa';
 
 @container-lg-desktop: (950px + @grid-gutter-width);
 

@@ -82,6 +82,7 @@
                     </div>
                     <div class="item">
                         <a href="index.php?cat=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
+                        <div class="tag-special best-seller"></div>
                     </div>
                     <div class="item">
                         <a href="index.php?cat=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
