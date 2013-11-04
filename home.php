@@ -79,16 +79,49 @@
                 <div class="productgallery">
                     <div class="item">
                         <a href="index.php?cat=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
+                        <div class="row price">
+                            <div class="col-xs-6">
+                                Nama Produk
+                            </div>
+                            <div class="col-xs-6">
+                                IDR 90,000
+                            </div>
+                        </div>
                     </div>
                     <div class="item">
                         <a href="index.php?cat=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
                         <div class="tag-special best-seller"></div>
+                        <div class="row price">
+                            <div class="col-xs-6">
+                                Nama Produk
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="promo-old">IDR 90,000</span>
+                                <span class="promo-new">IDR 80,000</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="item">
                         <a href="index.php?cat=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
+                        <div class="row price">
+                            <div class="col-xs-6">
+                                Nama Produk
+                            </div>
+                            <div class="col-xs-6">
+                                IDR 90,000
+                            </div>
+                        </div>
                     </div>
                     <div class="item">
                         <a href="index.php?cat=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
+                        <div class="row price">
+                            <div class="col-xs-6">
+                                Nama Produk
+                            </div>
+                            <div class="col-xs-6">
+                                IDR 90,000
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

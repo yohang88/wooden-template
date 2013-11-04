@@ -387,9 +387,10 @@ header {
 					padding-left:     0;
 					padding-right:    0;
 					border-top:       1px solid;
-					border-bottom:    1px solid;
+					// border-bottom:    1px solid;
 					border-color:     @green-pastel;
-					margin-bottom:    30px;
+					// margin-bottom:    30px;
+					// padding-top: 10px;
 					background-color: @green-pastel;
 
 					&:hover img { opacity: 0.5; }
@@ -405,6 +406,19 @@ header {
 							position:          absolute;
 							top:               20px;
 							right:             0;
+						}
+					}
+
+					.price {
+						background-color: #fff;
+						padding: 10px 0;
+
+						.promo-old, .promo-new {
+							display: block;
+						}
+
+						.promo-old {
+							text-decoration: line-through;
 						}
 					}
 				}

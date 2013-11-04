@@ -6478,9 +6478,7 @@ body.category #main-wrapper #wrapper #common-content .main {
   padding-left: 0;
   padding-right: 0;
   border-top: 1px solid;
-  border-bottom: 1px solid;
   border-color: #a9c1a4;
-  margin-bottom: 30px;
   background-color: #a9c1a4;
 }
 body.category #main-wrapper #wrapper #common-content .productgallery .item {
@@ -6505,6 +6503,17 @@ body.category #main-wrapper #wrapper #common-content .productgallery .item {
   position: absolute;
   top: 20px;
   right: 0;
+}
+#main-wrapper #wrapper #common-content .productgallery .item .price {
+  background-color: #fff;
+  padding: 10px 0;
+}
+#main-wrapper #wrapper #common-content .productgallery .item .price .promo-old,
+#main-wrapper #wrapper #common-content .productgallery .item .price .promo-new {
+  display: block;
+}
+#main-wrapper #wrapper #common-content .productgallery .item .price .promo-old {
+  text-decoration: line-through;
 }
 footer .container {
   background-color: #a9c1a4;
