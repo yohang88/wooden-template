@@ -14,7 +14,7 @@
     <div class="container">
         <div class="site-logo">
             <div class="inner">
-                <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="Java Wooden Handicraft" width="220px" />
+                <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="Java Wooden Handicraft" width="380px" />
                 <div class="social-network">
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/img/share-fb.png" alt="Facebook" />
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/img/share-twitter.png" alt="Twitter" />

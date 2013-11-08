@@ -53,7 +53,7 @@
             <div class="item">
                 <div class="outer">
                     <div class="inner">
-                        <div><a href="index.php?cat=1">Wooden Accessories</a></div>
+                        <div><a href="index.php?cat=1">Wooden Fashion</a></div>
                     </div>
                 </div>
             </div>
@@ -68,6 +68,13 @@
                 <div class="outer">
                     <div class="inner">
                         <div><a href="index.php?cat=1">Wooden Toys</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="outer">
+                    <div class="inner">
+                        <div><a href="index.php?cat=1">Wooden Hobbies</a></div>
                     </div>
                 </div>
             </div>

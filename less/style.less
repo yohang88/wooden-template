@@ -105,7 +105,7 @@ header {
 				.hidden-xs;
 				position: absolute;
 				right: 0;
-				top: 10px;
+				bottom: 0px;
 
 				img {
 					width: 36px;
@@ -129,7 +129,8 @@ header {
 
 		.nav > li > a {
 
-			font-size: 12pt;
+			font-size: 13pt;
+
 			@media (min-width: @screen-sm) {
 				padding: 9px 46px;
 			}
@@ -141,6 +142,11 @@ header {
 			@media (min-width: @screen-lg) {
 				padding: 9px 75px;
 			}
+		}
+
+		.navbar-nav > a:hover
+		{
+			color: @green-pastel;
 		}
 
 		.navbar-nav > .active > a,
@@ -162,7 +168,7 @@ header {
 
 	#wrapper {
 		min-height: 600px;
-		// box-shadow: 0px 0px 5px 3px #EEE0D1;
+		box-shadow: 0px 0px 31px -3px #999999;
 
 		// font-size: 0.9em;
 		background-color: #FFF;
@@ -265,10 +271,30 @@ header {
 
 			.item {
 				.make-xs-column(6);
-				.make-sm-column(3);
+				.make-sm-column(2);
 				body.category & {
 					.make-xs-column(4);
 					.make-sm-column(4);
+
+					@media (min-width: @screen-sm) {
+						width: 19.666667%;
+						padding: 0 4px;
+					}
+
+					.outer {
+						opacity: 0.5;
+					}
+				}
+
+				&.active .outer, .outer:hover {
+					border-style: solid;
+					border-width: 8px;
+					opacity: 1;
+				}
+
+				@media (min-width: @screen-sm) {
+					width: 19.666667%;
+					padding: 0 4px;
 				}
 
 				padding-right:    5px;
@@ -280,6 +306,7 @@ header {
 					border-color:  @green-pastel;
 					border-radius: 50%;
 					font-size:     12pt;
+					opacity: 1;
 
 					.inner {
 						&:after {
@@ -314,10 +341,10 @@ header {
 								line-height: 1em;
 								font-size: 16pt;
 								@media (min-width: @screen-sm) {
-									font-size: 18pt;
+									font-size: 14pt;
 								}
 								@media (min-width: @screen-md) {
-									font-size: 25pt;
+									font-size: 18pt;
 								}
 						    }
 					    }
@@ -389,7 +416,7 @@ header {
 					border-top:       1px solid;
 					// border-bottom:    1px solid;
 					border-color:     @green-pastel;
-					// margin-bottom:    30px;
+					margin-bottom:    40px;
 					// padding-top: 10px;
 					background-color: @green-pastel;
 
@@ -410,8 +437,10 @@ header {
 					}
 
 					.price {
-						background-color: #fff;
-						padding: 10px 0;
+						position: absolute;
+						z-index: 1;
+						bottom: -10;
+						width: 100%;
 
 						.promo-old, .promo-new {
 							display: block;
