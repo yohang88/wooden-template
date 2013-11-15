@@ -16,15 +16,15 @@
             <div class="inner">
                 <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="Java Wooden Handicraft" width="380px" />
                 <div class="social-network">
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/share-fb.png" alt="Facebook" />
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/share-twitter.png" alt="Twitter" />
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/share-gplus.png" alt="Google Plus" />
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/share-youtube.png" alt="Youtube" />
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-fb.png" alt="Facebook" />
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-pinterest.png" alt="Pinterest" />
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-twitter.png" alt="Twitter" />
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-gplus.png" alt="Google Plus" />
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-youtube.png" alt="Youtube" />
                 </div>
             </div>
         </div>
         <nav class="navbar navbar-default" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -34,15 +34,16 @@
                 </button>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.php">Home</a></li>
-                    <li><a href="index.php">About Us</a></li>
-                    <li><a href="index.php">Order</a></li>
-                    <li><a href="index.php">Contact</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
+                <?php wp_nav_menu( array(
+                'theme_location'  => 'primary',
+                'container'       => 'div',
+                'container_class' => 'collapse navbar-collapse navbar-ex1-collapse',
+                'menu_class'      => 'nav navbar-nav',
+                'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+                'walker'          => new wp_bootstrap_navwalker()
+                ) ); ?>
+            </div>
         </nav>
     </div>
 </header>

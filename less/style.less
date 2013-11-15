@@ -80,6 +80,8 @@ body {
 	background-color: @light-brown;
 	color: rgb(142, 142, 142);
 	background-image: url('img/bg.jpg');
+	min-height: 800px;
+	font-size: 14px;
 }
 
 header {
@@ -151,9 +153,15 @@ header {
 
 		.navbar-nav > .active > a,
 		.navbar-nav > .active > a:hover,
-		.navbar-nav > .active > a:focus {
+		.navbar-nav > .active > a:focus,
+		li.current-menu-parent
+		{
 			background: @green-pastel;
 			color: #FFF;
+		}
+
+		.dropdown-menu {
+			min-width: 232px;
 		}
 	}
 }
@@ -167,7 +175,7 @@ header {
 	}
 
 	#wrapper {
-		min-height: 600px;
+		min-height: 300px;
 		box-shadow: 0px 0px 31px -3px #999999;
 
 		// font-size: 0.9em;
@@ -284,6 +292,12 @@ header {
 					.outer {
 						opacity: 0.5;
 					}
+
+					&.active .outer, .outer:hover {
+						border-style: solid;
+						border-width: 8px;
+						opacity: 1;
+					}
 				}
 
 				&.active .outer, .outer:hover {
@@ -365,7 +379,12 @@ header {
 					border-color:  @green-pastel;
 				}
 
-				body.category & {
+				&.page {
+					.make-sm-column(12);
+					border: 0;
+				}
+
+				&.category {
 					.make-sm-column(12);
 					border: 0;
 				}
@@ -395,6 +414,55 @@ header {
 					background-position-y: 3px;
 				}
 
+				&.ribbon {
+					font-family:           @font-booter;
+					font-size:             23pt;
+					position:              relative;
+					margin-right:          -30px;
+					margin-left:           -50px;
+					padding:               10px 10px;
+					padding-left:          65px;
+					background-color:      @green-pastel;
+					background-image:      url('img/calligraphy-1.png');
+					background-repeat:     no-repeat;
+					background-position-x: 15px;
+					background-position-y: 8px;
+					background-size:       30px 40px;
+					color:                 @white;
+					margin-bottom: 40px;
+
+					@media (min-width: @screen-md) {
+						margin-right: 0;
+					}
+
+					&:after {
+						position:     absolute;
+						top:          100%;
+						left:         0px;
+						width:        0;
+						height:       0;
+						border-width: 10px 10px;
+						border-style: solid;
+						border-color: darken(@green-pastel, 10%) darken(@green-pastel, 10%) transparent transparent;
+						content:      ' ';
+					}
+
+					@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+						margin-right: -50px;
+
+						&:before {
+							position:     absolute;
+							top:          100%;
+							right:        0px;
+							width:        0;
+							height:       0;
+							border-width: 10px 10px;
+							border-style: solid;
+							border-color: darken(@green-pastel, 10%) transparent transparent darken(@green-pastel, 10%) ;
+							content:      ' ';
+						}
+					}
+				}
 			}
 
 			.productgallery {
@@ -403,13 +471,15 @@ header {
 				padding-right: 15px;
 
 				.item {
-					.make-xs-column(6);
+					.make-xs-column(4);
 
+					/*
 					body.category & {
 						.make-xs-column(4);
 						padding-left: 0;
 						padding-right: 0;
 					}
+					*/
 
 					padding-left:     0;
 					padding-right:    0;
@@ -472,4 +542,22 @@ footer {
 			margin-bottom: 10px;
 		}
 	}
+}
+
+form#cntctfrm_contact_form {
+	div {
+		margin-bottom: 5px;
+	}
+}
+
+#cntctfrm_contact_form input.text,
+#cntctfrm_contact_form textarea,
+#cntctfrm_contact_message,
+#cntctfrm_contact_name,
+#cntctfrm_contact_email,
+#cntctfrm_contact_subject {
+	width: 100%;
+	background-color: #eee;
+	border: 0;
+	padding: 5px 10px;
 }

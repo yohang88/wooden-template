@@ -1,4 +1,8 @@
 <?php
+
+require_once('wp_bootstrap_navwalker.php');
+
+
 function theme_scripts_styles() {
 
 	wp_enqueue_script( 'theme-script-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '2013-10-03', true );
@@ -29,4 +33,13 @@ function theme_wp_title( $title, $sep ) {
 
 	return $title;
 }
+
+
 add_filter( 'wp_title', 'theme_wp_title', 10, 2 );
+function theme_setup() {
+
+	register_nav_menu( 'primary', 'Navigation Menu' );
+
+}
+
+add_action( 'after_setup_theme', 'theme_setup' );
