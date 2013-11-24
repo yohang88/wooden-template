@@ -2,8 +2,16 @@
 
 require_once('wp_bootstrap_navwalker.php');
 
-add_theme_support( 'post-thumbnails' );
+function theme_setup() {
 
+	register_nav_menu( 'primary', 'Navigation Menu' );
+	add_theme_support( 'post-thumbnails' );
+	add_image_size('product-thumb', 300, 300, true);
+	add_image_size('slider-featured', 600, 335, true);
+
+}
+
+add_action( 'after_setup_theme', 'theme_setup' );
 
 function theme_scripts_styles() {
 
@@ -38,13 +46,7 @@ function theme_wp_title( $title, $sep ) {
 
 
 add_filter( 'wp_title', 'theme_wp_title', 10, 2 );
-function theme_setup() {
 
-	register_nav_menu( 'primary', 'Navigation Menu' );
-
-}
-
-add_action( 'after_setup_theme', 'theme_setup' );
 
 
 function theme_paging_nav() {
