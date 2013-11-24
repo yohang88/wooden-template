@@ -28,10 +28,7 @@ $sliders = get_posts( $args );
                             setup_postdata( $slider );
                         ?>
                         <div class="item<?php echo ($n==0 ? ' active' : '') ?>">
-                            <?php
-                            $image_attributes = wp_get_attachment_image_src( $slider->ID , 'full' );
-                            ?>
-                            <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=<?php echo $image_attributes[0]; ?>&amp;w=540&amp;h=300" class="img-responsive" />
+                            <?php the_post_thumbnail( 'slider-featured', array('class' => 'img-responsive') ); ?>
                             <div class="carousel-caption">
                             </div>
                         </div>

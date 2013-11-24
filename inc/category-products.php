@@ -42,7 +42,7 @@ $order_page_link = get_page_link($order_page_id);
 
                     <div class="item">
                         <a href="#" data-toggle="modal" data-target="#modal-product-<?php the_ID() ?>">
-                            <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" />
+                            <?php the_post_thumbnail( 'product-thumb', array('class' => 'img-responsive') ); ?>
                         </a>
                         <div class="meta-product">
                             <div class="row">
