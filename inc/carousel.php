@@ -31,7 +31,7 @@ $sliders = get_posts( $args );
                             <?php
                             $image_attributes = wp_get_attachment_image_src( $slider->ID , 'slider-featured' );
                             ?>
-                            <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=<?php echo $image_attributes[0]; ?>&amp;w=540&amp;h=300" class="img-responsive" />
+                            <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=<?php echo $image_attributes[0]; ?>&amp;w=600&amp;h=335" class="img-responsive" />
                             <div class="carousel-caption">
                             </div>
                         </div>
