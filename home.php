@@ -84,7 +84,9 @@ foreach($myposts as $post):
                                 </div>
                             </div>
                         </div>
+                        <?php if(has_category('best-seller')): ?>
                         <div class="tag-special best-seller" onclick="location.href='<?php echo $post_category_link ?>'"></div>
+                        <?php endif; ?>
                     </div>
 
 <?php endforeach; ?>

@@ -55,7 +55,9 @@ $order_page_link = get_page_link($order_page_id);
                                 </div>
                             </div>
                         </div>
+                        <?php if(has_category('best-seller')): ?>
                         <div class="tag-special best-seller" onclick="$('#modal-product-<?php the_ID() ?>').modal('show')"></div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="item-modal modal fade" id="modal-product-<?php the_ID() ?>" tabindex="-1" role="dialog" aria-hidden="true">
@@ -69,23 +71,64 @@ $order_page_link = get_page_link($order_page_id);
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <aside class="preview">
-                                                <img class="main-photo img-responsive" src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" alt="Alt title of image">
+                                                <?php
+                                                if (class_exists('MultiPostThumbnails')):
+                                                    $img_full_1 = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'product-thumb');
+                                                    $img_thumb_1 = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'product-thumb-mini');
+
+                                                    $img_full_2 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-2', get_the_ID(), 'product-thumb');
+                                                    $img_thumb_2 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-2', get_the_ID(), 'product-thumb-mini');
+
+                                                    $img_full_3 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-3', get_the_ID(), 'product-thumb');
+                                                    $img_thumb_3 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-3', get_the_ID(), 'product-thumb-mini');
+
+                                                    $img_full_4 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-4', get_the_ID(), 'product-thumb');
+                                                    $img_thumb_4 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-4', get_the_ID(), 'product-thumb-mini');
+
+                                                    $img_full_5 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-4', get_the_ID(), 'product-thumb');
+                                                    $img_thumb_5 = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'product-image-4', get_the_ID(), 'product-thumb-mini');
+
+                                                ?>
+
+                                                <img class="main-photo img-responsive" src="<?php echo $img_full_1[0] ?>" alt="Alt title of image">
                                                 <p class="caption"></p>
                                                 <div class="productphotos-nav">
-                                                    <a href="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300">
-                                                        <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=93&amp;h=73" title="Side 1 of the shoe" alt="Side 1 of the shoe">
+                                                    <?php if(!empty($img_full_1[0])): ?>
+                                                    <a href="<?php echo $img_full_1[0] ?>">
+                                                        <img src="<?php echo $img_thumb_1[0] ?>" title="Side 1 of the shoe" alt="Side 1 of the shoe">
                                                     </a>
-                                                    <a href="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300">
-                                                        <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=93&amp;h=73" title="Side 2 of the shoe" alt="Side 2 of the shoe">
+                                                    <?php endif; ?>
+                                                    <?php if(!empty($img_full_2)): ?>
+                                                    <a href="<?php echo $img_full_2 ?>">
+                                                        <img src="<?php echo $img_thumb_2 ?>" title="Side 2 of the shoe" alt="Side 2 of the shoe">
                                                     </a>
-                                                    <a href="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300">
-                                                        <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=93&amp;h=73" title="Side 3 of the shoe" alt="Side 3 of the shoe">
+                                                    <?php endif; ?>
+                                                    <?php if(!empty($img_full_3)): ?>
+                                                    <a href="<?php echo $img_full_3 ?>">
+                                                        <img src="<?php echo $img_thumb_3 ?>" title="Side 3 of the shoe" alt="Side 3 of the shoe">
                                                     </a>
+                                                    <?php endif; ?>
+                                                    <?php if(!empty($img_full_4)): ?>
+                                                    <a href="<?php echo $img_full_4 ?>">
+                                                        <img src="<?php echo $img_thumb_4 ?>" title="Side 4 of the shoe" alt="Side 4 of the shoe">
+                                                    </a>
+                                                    <?php endif; ?>
+                                                    <?php if(!empty($img_full_5)): ?>
+                                                    <a href="<?php echo $img_full_5 ?>">
+                                                        <img src="<?php echo $img_thumb_5 ?>" title="Side 5 of the shoe" alt="Side 5 of the shoe">
+                                                    </a>
+                                                    <?php endif; ?>
+                                                    <?php endif; ?>
                                                 </div>
                                             </aside>
                                         </div>
                                         <div class="col-sm-7">
                                             <h2><?php the_title(); ?></h2>
+
+                                            <div class="product-tag" style="margin-bottom: 10px">
+                                            <?php if(has_category('best-seller')) echo '<h4 style="display:inline-block"><span class="label label-success">Best Seller</span></h4>' ?>
+                                            <?php if(!empty($price_sale)) echo '<h4 style="display:inline-block"><span class="label label-danger">On Sale</span></h4>' ?>
+                                            </div>
                                             <?php the_content(); ?>
 
                                             <?php if(isset($price_normal)): ?>

@@ -7,8 +7,37 @@ function theme_setup() {
 	register_nav_menu( 'primary', 'Navigation Menu' );
 	add_theme_support( 'post-thumbnails' );
 	add_image_size('product-thumb', 300, 300, true);
+	add_image_size('product-thumb-mini', 100, 75, true);
 	add_image_size('slider-featured', 600, 335, true);
 
+    if (class_exists('MultiPostThumbnails')) {
+        new MultiPostThumbnails(
+            array(
+                'label' => 'Photo 2',
+                'id' => 'product-image-2',
+                'post_type' => 'post'
+            ));
+
+        new MultiPostThumbnails(
+            array(
+                'label' => 'Photo 3',
+                'id' => 'product-image-3',
+                'post_type' => 'post'
+            ));
+
+        new MultiPostThumbnails(
+            array(
+                'label' => 'Photo 4',
+                'id' => 'product-image-4',
+                'post_type' => 'post'
+            ));
+        new MultiPostThumbnails(
+            array(
+                'label' => 'Photo 5',
+                'id' => 'product-image-5',
+                'post_type' => 'post'
+            ));
+    }
 }
 
 add_action( 'after_setup_theme', 'theme_setup' );
