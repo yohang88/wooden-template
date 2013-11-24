@@ -10,9 +10,7 @@
                 <img src="<?php echo get_template_directory_uri() ?>/img/white-twitter.png" width="28px" />
             </div>
         </div>
-        <div class="row ulir">
-
-        </div>
+        <!-- div class="row ulir hidden-xs"></div -->
 	</div>
 </footer>
 

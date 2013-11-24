@@ -2,6 +2,8 @@
 
 require_once('wp_bootstrap_navwalker.php');
 
+add_theme_support( 'post-thumbnails' );
+
 
 function theme_scripts_styles() {
 
@@ -43,3 +45,32 @@ function theme_setup() {
 }
 
 add_action( 'after_setup_theme', 'theme_setup' );
+
+
+function theme_paging_nav() {
+	global $wp_query;
+
+	// Don't print empty markup if there's only one page.
+	if ( $wp_query->max_num_pages < 2 )
+		return;
+	?>
+	<nav class="navigation paging-navigation" role="navigation">
+		<div class="nav-links">
+
+			<?php if ( get_next_posts_link() ) : ?>
+			<div class="nav-previous"><?php next_posts_link( __( 'Selanjutnya <span class="meta-nav">&rarr;</span> ' ) ); ?></div>
+			<?php endif; ?>
+
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-next"><?php previous_posts_link( __( '<span class="meta-nav">&larr;</span> Sesudahnya' ) ); ?></div>
+			<?php endif; ?>
+
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	<?php
+}
+
+function wptp_add_categories_to_attachments() {
+    register_taxonomy_for_object_type( 'category', 'attachment' );
+}
+add_action( 'init' , 'wptp_add_categories_to_attachments' );

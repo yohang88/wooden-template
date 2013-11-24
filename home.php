@@ -4,154 +4,91 @@
     <div id="wrapper" class="container">
         <div id="common-about">
             <div class="content">
-                <h1 class="ribbon">Tentang Kami</h1>
-                <img width="200" src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=200&amp;h=200" class="circle aligncenter" />
-                <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font.</p>
+<?php
+
+$page = get_posts(
+    array(
+        'name'      => 'home',
+        'post_type' => 'page'
+    )
+);
+
+$home_title   = $page[0]->post_title;
+$home_content = $page[0]->post_content;
+
+?>
+                <h1 class="ribbon"><?php echo $home_title ?></h1>
+                <?php echo $home_content ?>
                 <div class="clearfix"></div>
             </div>
-            <div class="slider">
-                <div id="carousel-generic" class="carousel slide" data-interval="5000">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-generic" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/featured-<?php echo rand(1,5) ?>.jpg&amp;w=540&amp;h=380" class="img-responsive" />
-                            <div class="carousel-caption">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/featured-<?php echo rand(1,5) ?>.jpg&amp;w=540&amp;h=380" class="img-responsive" />
-                            <div class="carousel-caption">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/featured-<?php echo rand(1,5) ?>.jpg&amp;w=540&amp;h=380" class="img-responsive" />
-                            <div class="carousel-caption">
-                            </div>
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
-                        <span class="icon-prev"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-generic" data-slide="next">
-                        <span class="icon-next"></span>
-                    </a>
-                </div>
-            </div>
+
+            <?php get_template_part('inc/carousel') ?>
+
         </div>
-        <div id="common-productcategories">
-            <div class="item">
-                <div class="outer">
-                    <div class="inner">
-                        <div><a href="index.php?cat=3">Wooden Bicycle</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="outer">
-                    <div class="inner">
-                        <div><a href="index.php?cat=4">Wooden Fashion</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="outer">
-                    <div class="inner">
-                        <div><a href="index.php?cat=5">Wooden Interior</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="outer">
-                    <div class="inner">
-                        <div><a href="index.php?cat=6">Wooden Toys</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="outer">
-                    <div class="inner">
-                        <div><a href="index.php?cat=7">Wooden Hobbies</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <?php get_template_part('inc/category-thumb') ?>
+
         <div id="common-content">
             <div class="main">
-                <h1 class="caption">Main</h1>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font.</p>
+                <h1 class="caption">Featured Product</h1>
                 <div class="productgallery">
+
+<?php
+
+$cat_selected = array(
+    'wooden-bicycle',
+    'wooden-fashion',
+    'wooden-interior',
+    'wooden-toys',
+    'wooden-hobbies',
+);
+
+$cat    = get_category_by_slug( 'product-featured' );
+$cat_id = $cat->term_id;
+
+$args = array(
+    'category' => $cat_id,
+    'numberposts' => 4
+    );
+
+$myposts = get_posts( $args );
+
+foreach($myposts as $post):
+
+    setup_postdata( $post );
+
+    $meta         = get_post_meta( get_the_ID() );
+    $price_normal = $meta['price'][0];
+    $price_sale   = $meta['price_sale'][0];
+
+    $categories   = get_the_category();
+
+    foreach($categories as $category) {
+
+        if(in_array($category->slug, $cat_selected))
+            $post_category_link = get_category_link($category->term_id);
+
+    }
+
+?>
                     <div class="item">
-                        <a href="index.php?p=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
-                        <div class="row price">
-                            <div class="col-xs-6">
-                                Nama Produk
-                            </div>
-                            <div class="col-xs-6">
-                                IDR 90,000
+                        <a href="<?php echo $post_category_link ?>"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
+                        <div class="meta-product">
+                            <div class="row">
+                                <div class="col-sm-6 meta-product-title">
+                                    <?php the_title(); ?>
+                                </div>
+                                <div class="col-sm-6 meta-product-price<?php echo (isset($price_sale) ? ' sale' : '') ?>">
+                                    <span class="price_normal"><?php echo $price_normal ?></span><br />
+                                    <span class="price_sale"><?php echo $price_sale ?></span>
+                                </div>
                             </div>
                         </div>
+                        <div class="tag-special best-seller" onclick="location.href='<?php echo $post_category_link ?>'"></div>
                     </div>
-                    <div class="item">
-                        <a href="index.php?p=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
-                        <div class="tag-special best-seller"></div>
-                        <div class="row price">
-                            <div class="col-xs-6">
-                                Nama Produk
-                            </div>
-                            <div class="col-xs-6">
-                                <span class="promo-old">IDR 90,000</span>
-                                <span class="promo-new">IDR 80,000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a href="index.php?p=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
-                        <div class="row price">
-                            <div class="col-xs-6">
-                                Nama Produk
-                            </div>
-                            <div class="col-xs-6">
-                                IDR 90,000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a href="index.php?p=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
-                        <div class="row price">
-                            <div class="col-xs-6">
-                                Nama Produk
-                            </div>
-                            <div class="col-xs-6">
-                                IDR 90,000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a href="index.php?p=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
-                        <div class="row price">
-                            <div class="col-xs-6">
-                                Nama Produk
-                            </div>
-                            <div class="col-xs-6">
-                                IDR 90,000
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a href="index.php?p=1"><img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=300&amp;h=300" class="img-responsive" /></a>
-                        <div class="row price">
-                            <div class="col-xs-6">
-                                Nama Produk
-                            </div>
-                            <div class="col-xs-6">
-                                IDR 90,000
-                            </div>
-                        </div>
-                    </div>
+
+<?php endforeach; ?>
+
                 </div>
             </div>
 
