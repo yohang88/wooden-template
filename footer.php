@@ -5,9 +5,23 @@
                 &copy; <?php echo date('Y') ?> by Java Wooden Handicraft
             </div>
             <div class="col-xs-6" style="text-align:right">
-                <img src="<?php echo get_template_directory_uri() ?>/img/white-fb.png" />
-                <img src="<?php echo get_template_directory_uri() ?>/img/white-pinterest.png" />
-                <img src="<?php echo get_template_directory_uri() ?>/img/white-twitter.png" width="28px" />
+                <?php $check = get_option('social_fb'); if(!empty($check)): ?>
+                <a href="<?php echo get_option('social_fb') ?>">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/white-fb.png" alt="Facebook" />
+                </a>
+                <?php endif; ?>
+
+                <?php $check = get_option('social_pinterest'); if(!empty($check)): ?>
+                <a href="<?php echo get_option('social_pinterest') ?>">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/white-pinterest.png" alt="Pinterest" />
+                </a>
+                <?php endif; ?>
+
+                <?php $check = get_option('social_twitter'); if(!empty($check)): ?>
+                <a href="<?php echo get_option('social_twitter') ?>">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/white-twitter.png" width="28px" alt="Twitter" />
+                </a>
+                <?php endif; ?>
             </div>
         </div>
         <!-- div class="row ulir hidden-xs"></div -->

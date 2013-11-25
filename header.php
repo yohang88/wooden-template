@@ -16,11 +16,37 @@
             <div class="inner">
                 <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="Java Wooden Handicraft" />
                 <div class="social-network">
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-fb.png" alt="Facebook" />
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-pinterest.png" alt="Pinterest" />
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-twitter.png" alt="Twitter" />
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-gplus.png" alt="Google Plus" />
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-youtube.png" alt="Youtube" />
+
+                    <?php $check = get_option('social_fb'); if(!empty($check)): ?>
+                    <a href="<?php echo get_option('social_fb') ?>">
+                        <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-fb.png" alt="Facebook" />
+                    </a>
+                    <?php endif; ?>
+
+                    <?php $check = get_option('social_pinterest'); if(!empty($check)): ?>
+                    <a href="<?php echo get_option('social_pinterest') ?>">
+                        <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-pinterest.png" alt="Pinterest" />
+                    </a>
+                    <?php endif; ?>
+
+                    <?php $check = get_option('social_twitter'); if(!empty($check)): ?>
+                    <a href="<?php echo get_option('social_twitter') ?>">
+                        <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-twitter.png" alt="Twitter" />
+                    </a>
+                    <?php endif; ?>
+
+                    <?php $check = get_option('social_gplus'); if(!empty($check)): ?>
+                    <a href="<?php echo get_option('social_gplus') ?>">
+                        <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-gplus.png" alt="Google Plus" />
+                    </a>
+                    <?php endif; ?>
+
+                    <?php $check = get_option('social_youtube'); if(!empty($check)): ?>
+                    <a href="<?php echo get_option('social_youtube') ?>">
+                        <img src="<?php bloginfo('stylesheet_directory'); ?>/img/brown-share-youtube.png" alt="Youtube" />
+                    </a>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>

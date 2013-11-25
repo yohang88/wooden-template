@@ -48,7 +48,7 @@ $cat_id = $cat->term_id;
 
 $args = array(
     'category' => $cat_id,
-    'numberposts' => 4
+    'numberposts' => get_option('display_product_featured'),
     );
 
 $myposts = get_posts( $args );
@@ -70,27 +70,27 @@ foreach($myposts as $post):
 
     }
 
-    $img_thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'product-thumb');
-
 ?>
                     <div class="item">
-                        <a href="<?php echo $post_category_link ?>">
-                            <img src="<?php echo $img_thumb ?>" class="img-responsive" />
-                        </a>
+                        <div class="thumb-product">
+                            <a href="<?php echo $post_category_link ?>">
+                                <?php the_post_thumbnail( 'product-thumb', array('class' => 'img-responsive') ); ?>
+                            </a>
+                            <?php if(has_category('best-seller')): ?>
+                            <div class="tag-special best-seller" onclick="location.href='<?php echo $post_category_link ?>'"></div>
+                            <?php endif; ?>
+                        </div>
                         <div class="meta-product">
                             <div class="row">
-                                <div class="col-sm-6 meta-product-title">
+                                <div class="col-xs-6 meta-product-title">
                                     <?php the_title(); ?>
                                 </div>
-                                <div class="col-sm-6 meta-product-price<?php echo (isset($price_sale) ? ' sale' : '') ?>">
+                                <div class="col-xs-6 meta-product-price<?php echo (isset($price_sale) ? ' sale' : '') ?>">
                                     <span class="price_normal"><?php echo $price_normal ?></span><br />
                                     <span class="price_sale"><?php echo $price_sale ?></span>
                                 </div>
                             </div>
                         </div>
-                        <?php if(has_category('best-seller')): ?>
-                        <div class="tag-special best-seller" onclick="location.href='<?php echo $post_category_link ?>'"></div>
-                        <?php endif; ?>
                     </div>
 
 <?php endforeach; ?>

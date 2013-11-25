@@ -52,6 +52,138 @@ function theme_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
 
+
+add_action( 'admin_menu', 'admin_theme_menu' );
+
+function admin_theme_menu() {
+    add_menu_page(__('Pengaturan Lain','menu-test'), __('Pengaturan Lain','menu-test'), 'manage_options', 'admin-theme-options', 'admin_theme_options' );
+
+    add_action( 'admin_init', 'theme_mysettings' );
+}
+
+function theme_mysettings() {
+    register_setting( 'theme-settings-group', 'google_map_iframe' );
+
+    register_setting( 'theme-settings-group', 'display_product_featured' );
+    register_setting( 'theme-settings-group', 'display_product_categories' );
+    register_setting( 'theme-settings-group', 'social_fb' );
+    register_setting( 'theme-settings-group', 'social_twitter' );
+    register_setting( 'theme-settings-group', 'social_pinterest' );
+    register_setting( 'theme-settings-group', 'social_youtube' );
+    register_setting( 'theme-settings-group', 'social_gplus' );
+    register_setting( 'theme-settings-group', 'widget_text_title' );
+    register_setting( 'theme-settings-group', 'widget_text_content' );
+    register_setting( 'theme-settings-group', 'widget_youtube_title' );
+    register_setting( 'theme-settings-group', 'widget_youtube_url' );
+    register_setting( 'theme-settings-group', 'widget_youtube_description' );
+
+}
+
+function admin_theme_options() {
+    if ( !current_user_can( 'manage_options' ) )  {
+        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+    } else {
+?>
+
+<div class="wrap">
+<?php // screen_icon(); ?>
+<form method="post" action="options.php">
+    <h2>Pengaturan Ekstra</h2>
+    <?php if(isset($_GET['settings-updated'])): ?>
+        <div id="message" class="updated">Settings saved</div>
+    <?php endif; ?>
+
+    <?php settings_fields( 'theme-settings-group' ); ?>
+    <?php do_settings_sections( 'theme-settings-group' ); ?>
+    <h3>Tampilan Produk</h3>
+    <p>Jumlah produk yang ditampilkan dalam satu halaman</p>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Featured Product (Homepage)</th>
+        <td><input type="text" name="display_product_featured" value="<?php echo get_option('display_product_featured'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Category Page</th>
+        <td><input type="text" name="display_product_categories" value="<?php echo get_option('display_product_categories'); ?>" /></td>
+        </tr>
+    </table>
+
+    <h3>Social Media</h3>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Facebook URL</th>
+        <td><input type="text" name="social_fb" style="width:300px" value="<?php echo get_option('social_fb'); ?>" /></td>
+        </tr>
+
+        <tr valign="top">
+        <th scope="row">Twitter URL</th>
+        <td><input type="text" name="social_twitter" style="width:300px" value="<?php echo get_option('social_twitter'); ?>" /></td>
+        </tr>
+
+        <tr valign="top">
+        <th scope="row">Pinterest URL</th>
+        <td><input type="text" name="social_pinterest" style="width:300px" value="<?php echo get_option('social_pinterest'); ?>" /></td>
+        </tr>
+
+        <tr valign="top">
+        <th scope="row">Youtube URL</th>
+        <td><input type="text" name="social_youtube" style="width:300px" value="<?php echo get_option('social_youtube'); ?>" /></td>
+        </tr>
+
+        <tr valign="top">
+        <th scope="row">Google Plus URL</th>
+        <td><input type="text" name="social_gplus" style="width:300px"  value="<?php echo get_option('social_gplus'); ?>" /></td>
+        </tr>
+    </table>
+
+    <h3>Widget Frontpage</h3>
+    <h4>Artikel Pendek</h4>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Widget Title</th>
+        <td><input type="text" name="widget_text_title" style="width:300px" value="<?php echo get_option('widget_text_title'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Content</th>
+        <td><?php wp_editor(get_option('widget_text_content'), 'widget_text_content', array('textarea_rows' => 4)); ?></td>
+        </tr>
+    </table>
+
+    <h4>Youtube</h4>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Widget Title</th>
+        <td><input type="text" name="widget_youtube_title" style="width:300px" value="<?php echo get_option('widget_youtube_title'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Youtube URL</th>
+        <td><input type="text" name="widget_youtube_url" style="width:300px" value="<?php echo get_option('widget_youtube_url'); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Youtube Description</th>
+        <td><?php wp_editor(get_option('widget_youtube_description'), 'widget_youtube_description', array('textarea_rows' => 4, 'media_buttons' => false)); ?></td>
+        </tr>
+    </table>
+
+    <h3>Lainnya</h3>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Google Maps Embed Code</th>
+        <td><textarea name="google_map_iframe" style="width:100%" rows="7"><?php echo get_option('google_map_iframe'); ?></textarea></td>
+        </tr>
+    </table>
+
+
+    <?php submit_button(); ?>
+</form>
+</div>
+
+<?php
+    } // end if
+
+} // end function
+
+
 function theme_wp_title( $title, $sep ) {
 	global $paged, $page;
 
@@ -105,3 +237,35 @@ function wptp_add_categories_to_attachments() {
     register_taxonomy_for_object_type( 'category', 'attachment' );
 }
 add_action( 'init' , 'wptp_add_categories_to_attachments' );
+
+function productcategory_pagesize( $query ) {
+
+    if ( is_category(array('wooden-bicycle','wooden-fashion','wooden-interior','wooden-toys','wooden-hobbies')))
+    {
+        $query->set( 'posts_per_page', get_option('display_product_categories'));
+        return;
+    }
+}
+add_action( 'pre_get_posts', 'productcategory_pagesize', 1 );
+
+function shortcode_pembatas_hijau( $atts ){
+    return '<div class="horizontal_line"></div>';
+}
+add_shortcode( 'pembatas_hijau', 'shortcode_pembatas_hijau' );
+
+function shortcode_google_map_iframe( $atts ){
+    return get_option('google_map_iframe');
+}
+add_shortcode( 'google_map_iframe', 'shortcode_google_map_iframe' );
+
+function shortcode_contact_socialmedia( $atts ){
+
+    return '<div class="contactpage-socialmedia">
+                <div class="social-item"><img src="'.get_bloginfo('stylesheet_directory').'/img/white-fb.png" alt="Facebook" /></div>
+                <div class="social-item"><img src="'.get_bloginfo('stylesheet_directory').'/img/white-pinterest.png" alt="Pinterest" /></div>
+                <div class="social-item"><img src="'.get_bloginfo('stylesheet_directory').'/img/white-twitter.png" alt="Twitter" /></div>
+                <div class="clearfix"></div>
+            </div>
+            ';
+}
+add_shortcode( 'contact_socialmedia', 'shortcode_contact_socialmedia' );
