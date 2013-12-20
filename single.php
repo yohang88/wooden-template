@@ -2,21 +2,43 @@
 
 <section id="main-wrapper">
     <div id="wrapper" class="container">
-
         <div id="common-content">
-            <div class="main">
-                <h1 class="caption">Main</h1>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font.</p>
+            <div class="main page">
+                <?php if ( have_posts() ) : ?>
 
-                <img src="<?php echo get_template_directory_uri() ?>/timthumb.php?src=img/dummy/photo-<?php echo rand(1,12) ?>.jpg&amp;w=700&amp;h=500" class="img-responsive" />
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-                <p align="center"><img src="<?php echo get_template_directory_uri() ?>/img/payment-options.png" width="150px" /></p>
+                    <h1 class="ribbon"><?php the_title(); ?></h1>
+
+                    <?php the_content(); ?>
+
+                    <?php endwhile; ?>
+                    <hr />
+                    <h3>Related Articles</h3>
+                        <ul>
+                        <?php
+                            $cat    = get_category_by_slug( 'blog' );
+                            $cat_id = $cat->term_id;
+                            $args = array(
+                                        'category' => $cat_id,
+                                        'numberposts' => 5,
+                                    );
+
+                            $recent_posts = get_posts( $args );
+                            foreach($recent_posts as $post):
+                                setup_postdata( $post );
+                        ?>
+                        <li><a href="<?php the_permalink() ?>"><?php the_title() ?></a></li>
+                        <?php endforeach; ?>
+                        </ul>
+
+                <?php else : ?>
+                    <?php get_template_part( 'content', 'none' ); ?>
+                <?php endif; ?>
             </div>
 
-            <?php get_sidebar() ?>
 
         </div>
-
     </div>
 </section>
 

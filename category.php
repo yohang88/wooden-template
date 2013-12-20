@@ -17,6 +17,7 @@
 
     <?php else: ?>
 
+        <?php get_template_part('inc/blog') ?>
 
     <?php endif; ?>
 

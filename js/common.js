@@ -1,6 +1,7 @@
 ( function( $ ) {
     $(window).load(function() {
         $('.carousel').carousel();
+        $(".productgallery .item").equalHeights(350,500);
     });
 
     $(window).resize(function() {

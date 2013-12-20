@@ -45,6 +45,7 @@ add_action( 'after_setup_theme', 'theme_setup' );
 function theme_scripts_styles() {
 
 	wp_enqueue_script( 'theme-script-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '2013-10-03', true );
+    wp_enqueue_script( 'theme-script-equal', get_template_directory_uri() . '/js/jquery.equalheights.js', array(), '2013-10-03', true );
 	wp_enqueue_script( 'theme-script-holder', get_template_directory_uri() . '/js/holder.js', array(), '2013-10-03', true );
 	wp_enqueue_script( 'theme-script-common', get_template_directory_uri() . '/js/common.js', array(), '1.0', true );
 
@@ -221,16 +222,24 @@ function theme_paging_nav() {
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( 'Selanjutnya <span class="meta-nav">&rarr;</span> ' ) ); ?></div>
+			<div class="nav-previous" style="float:right"><?php next_posts_link( __( 'Next <span class="meta-nav">&rarr;</span> ' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( '<span class="meta-nav">&larr;</span> Sesudahnya' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( '<span class="meta-nav">&larr;</span> Previous' ) ); ?></div>
 			<?php endif; ?>
 
+            <div class="clearfix"></div>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
+}
+
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+    return 'class="btn btn-lg btn-success"';
 }
 
 function wptp_add_categories_to_attachments() {
